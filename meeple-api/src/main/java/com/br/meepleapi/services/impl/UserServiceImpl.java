@@ -1,6 +1,7 @@
 package com.br.meepleapi.services.impl;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.stereotype.Service;
@@ -34,8 +35,8 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public UserModel findById(UUID id) {
-		return userRepository.findById(id).get();
+	public Optional<UserModel> findById(UUID id) {
+		return userRepository.findById(id);
 	}
 
 }

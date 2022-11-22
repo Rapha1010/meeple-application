@@ -3,7 +3,7 @@ server:
 
 spring:
     datasource:
-        url: jdbc:postgresql://localhost:5432/meeple-api
+        url: jdbc:postgresql://localhost:5434/meeple-api
         username: postgres
         password: 123456
     jpa:

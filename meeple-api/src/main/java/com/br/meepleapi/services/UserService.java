@@ -1,6 +1,7 @@
 package com.br.meepleapi.services;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 import com.br.meepleapi.models.UserModel;
@@ -13,6 +14,6 @@ public interface UserService {
 
 	void delete(UUID id);
 
-	UserModel findById(UUID id);
+	Optional<UserModel> findById(UUID id);
 
 }
