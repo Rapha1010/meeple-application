@@ -1,0 +1,17 @@
+
+<div class="container">
+    <form #userForm="ngForm" (ngSubmit)="onClickSubmit()" style="margin-top: 15px; margin-left: 20px;">
+        <div class="form-row">
+            <div class="col-md-4 mb-1">
+            <label for="inputCity">Email</label>
+            <input type="text" class="form-control" id="email" name="email"  [(ngModel)]="userModel.email">
+    
+            <label for="inputZip">Senha</label>
+            <input type="password" class="form-control" id="senha" name="senha" [(ngModel)]="userModel.password">
+        </div>
+        </div>
+        <div class="form-row">
+        <button type="submit" class="btn btn-primary">Cadastrar</button>
+        </div>
+    </form>
+</div>

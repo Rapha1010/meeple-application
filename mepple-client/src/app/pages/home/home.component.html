@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="row">
+        <div class="col-6 col-md-5">
+            <div class="form-group">
+                <div class="search-hero text-right" style="margin:10px;">
+                    <input type="text" class="form-control" [(ngModel)]="filterTerm" placeholder="Search">
+                </div>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>name</th>
+                        <th>color</th>
+                        <th>type</th>
+                        <th>action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr
+                        *ngFor="let card of cardList | paginate: { itemsPerPage: pageSize, currentPage: page } | filter:filterTerm ">
+                        <td>{{card.id}}</td>
+                        <td>{{card.name}}</td>
+                        <td>{{card.color}}</td>
+                        <td>{{card.type}}</td>
+                        <td>
+                            <button class="btn btn-primary" (click)="addCard(card.id)"> + </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <pagination-controls (pageChange)="page = $event"></pagination-controls>
+        </div>
+    </div>
+</div>

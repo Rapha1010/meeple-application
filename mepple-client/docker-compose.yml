@@ -1,0 +1,7 @@
+version: '2'
+services:
+  myservice:
+  build:
+    context: .
+    dockerfile: Dockerfile
+  container_name: the_new_container_name
