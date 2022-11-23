@@ -1,0 +1,18 @@
+<div class="container">
+    <form #userForm="ngForm" (ngSubmit)="onClickSubmit()" style="margin-top: 15px; margin-left: 20px;">
+        <div class="form-row">
+            <div class="col-md-4 mb-1">
+                <label for="inputCity">Pontos</label>
+                <input type="text" class="form-control" id="point" name="point" placeholder="ex:10" [(ngModel)]="meeplePointModel.point">
+
+                <label for="inputZip">Observação</label>
+                <textarea class="form-control" id="obs" name="obs" rows="3"
+                    [(ngModel)]="meeplePointModel.obs" placeholder="jogou dixt, munchkin, stone age"></textarea>
+            </div>
+        </div>
+        <div class="form-row">
+            <button type="submit" class="btn btn-primary">Adicionar Pontos</button>
+        </div>
+    </form>
+</div>
+<notifier-container></notifier-container>

@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="row">
+        <div class="col-6 col-md-8">
+            <div class="form-group">
+                <div class="search-hero text-right" style="margin:10px;">
+                    <input type="text" class="form-control" [(ngModel)]="filterTerm" placeholder="Search">
+                </div>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Pontuacao</th>
+                        <th>Observacao</th>
+                        <th>Data</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr
+                        *ngFor="let p of pointList | paginate: { itemsPerPage: pageSize, currentPage: page } | filter:filterTerm ">
+                        <td>{{p.point}}</td>
+                        <td>{{p.obs}}</td>
+                        <td>{{p.creationDate}}</td>
+                        <td>
+                            <button class="btn btn-primary" (click)="addCard(p.id)"> + </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <pagination-controls (pageChange)="page = $event"></pagination-controls>
+        </div>
+    </div>
+</div>

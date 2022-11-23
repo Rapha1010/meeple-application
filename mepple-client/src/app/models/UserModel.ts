@@ -2,7 +2,7 @@ import { Deserializable } from "./Deserializable";
 
 export class UserModel implements Deserializable {
 
-  id:number = 0;
+  userId:string = '';
   name:string = '';
   email:string = '';
   password:string = '';

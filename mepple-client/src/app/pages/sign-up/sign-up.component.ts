@@ -25,10 +25,7 @@ export class SignUpComponent implements OnInit {
     this.userService.postSignUp(this.userModel).subscribe(
       { 
         next: (data) => { this.notifier.notify('success', 'Usuário cadastrado com sucesso') }, 
-        error: (err) => { this.notifier.notify('error', err.error.error);     console.log(err);} 
-
-     
-        
+        error: (err) => { this.notifier.notify('error', err.error.error); } 
       }
     );
 

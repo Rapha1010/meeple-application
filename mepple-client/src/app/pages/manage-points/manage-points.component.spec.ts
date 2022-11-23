@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CreateBettingComponent } from './create-betting.component';
+import { ManagePointsComponent } from './manage-points.component';
 
-describe('CreateBettingComponent', () => {
-  let component: CreateBettingComponent;
-  let fixture: ComponentFixture<CreateBettingComponent>;
+describe('ManagePointsComponent', () => {
+  let component: ManagePointsComponent;
+  let fixture: ComponentFixture<ManagePointsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CreateBettingComponent ]
+      declarations: [ ManagePointsComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(CreateBettingComponent);
+    fixture = TestBed.createComponent(ManagePointsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

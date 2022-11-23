@@ -43,6 +43,11 @@ public class UserController {
 		return ResponseEntity.ok().body(userService.findById(id).get());
 	}
 	
+	@GetMapping("/auth/{email}/{password}")
+	public ResponseEntity<UserModel> authUser(@PathVariable String email, @PathVariable String password) {
+		return ResponseEntity.ok().body(userService.findByEmailAndPassword(email, password));
+	}
+	
 	@PostMapping("/signup")
 	public ResponseEntity<Object> saveUser(@RequestBody @Valid UserDto obj){
 		UserModel userModel = new UserModel();	
@@ -52,13 +57,13 @@ public class UserController {
 		userModel.setLastUpdateDate(LocalDateTime.now(ZoneId.of("UTC")));
 		
 		userService.save(userModel);
-		return ResponseEntity.status(HttpStatus.OK).body("User signed success");
+		return ResponseEntity.status(HttpStatus.OK).build();
 	}
 	
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Object> deleteUser(@PathVariable UUID id) {
 		userService.delete(id);
-		return  ResponseEntity.status(HttpStatus.OK).body("User deleted success");
+		return  ResponseEntity.status(HttpStatus.OK).build();
 	}
 	
 }

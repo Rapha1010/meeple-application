@@ -8,4 +8,6 @@ import com.br.meepleapi.models.UserModel;
 
 public interface UserRepository extends JpaRepository<UserModel, UUID>{
 
+	UserModel findByEmailAndPassword(String email, String password);
+
 }

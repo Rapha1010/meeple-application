@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserModel } from '../../models/UserModel';
 import { UserService } from '../../services/UserService';
+import { NotifierService } from 'angular-notifier';
 
 @Component({
   selector: 'app-sign-in',
@@ -9,15 +10,28 @@ import { UserService } from '../../services/UserService';
 })
 export class SignInComponent implements OnInit {
 
-  userModel:UserModel = new UserModel();
+  userModel: UserModel = new UserModel();
 
-  constructor(private userService:UserService) { }
+  private readonly notifier: NotifierService;
+  constructor(private userService: UserService, notifierService: NotifierService) {
+    this.notifier = notifierService;
+
+  }
 
   ngOnInit(): void {
   }
 
   onClickSubmit(): void {
-    this.userService.getSignIn(this.userModel).subscribe((data)=> { console.log(data) });
+
+    this.userService.getSignIn(this.userModel.email, this.userModel.password).subscribe(
+      {
+        next: (data) => { 
+          
+          localStorage.setItem('email', data.email);
+          localStorage.setItem('user_id', data.userId);
+      
+      }
+      });
   }
 
 }

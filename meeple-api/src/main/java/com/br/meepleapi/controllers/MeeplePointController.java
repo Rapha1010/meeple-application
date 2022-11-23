@@ -53,7 +53,7 @@ public class MeeplePointController {
 		meeplePoint.setUser(userOptional.get());
 
 		meeplePointService.save(meeplePoint);
-		return ResponseEntity.status(HttpStatus.OK).body("meeple point added");
+		return ResponseEntity.status(HttpStatus.OK).build();
 	}
 	
 	@GetMapping

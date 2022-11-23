@@ -37,7 +37,7 @@ public class UserModel implements Serializable {
 	private String name;
 	@Column(name = "password")
 	private String password;
-	@Column(name = "email")
+	@Column(name = "email", unique=true)
 	private String email;
 	
 	@Column(nullable = false)

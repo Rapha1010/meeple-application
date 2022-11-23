@@ -7,19 +7,21 @@ import { HomeComponent } from './pages/home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-import { CreateBettingComponent } from './pages/create-betting/create-betting.component';
 import { SignInComponent } from './pages/sign-in/sign-in.component';
 import { MatchPointComponent } from './pages/match-point/match-point.component';
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { CareerBoardComponent } from './pages/career-board/career-board.component';
+import { ManagePointsComponent } from './pages/manage-points/manage-points.component';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    CreateBettingComponent,
     SignInComponent,
     MatchPointComponent,
-    SignUpComponent
+    SignUpComponent,
+    CareerBoardComponent,
+    ManagePointsComponent
   ],
   imports: [
     BrowserModule,

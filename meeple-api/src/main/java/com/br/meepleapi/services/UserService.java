@@ -16,4 +16,6 @@ public interface UserService {
 
 	Optional<UserModel> findById(UUID id);
 
+	UserModel findByEmailAndPassword(String email, String password);
+
 }
