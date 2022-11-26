@@ -4,6 +4,7 @@ import { UserService } from '../../services/UserService';
 import { NotifierService } from 'angular-notifier';
 import { NgxSpinnerService } from "ngx-spinner";
 import { Router, RouterModule, Routes } from '@angular/router';
+import { SimpleOAuth } from '../../services/SimpleOAuth';
 @Component({
   selector: 'app-sign-in',
   templateUrl: './sign-in.component.html',
