@@ -5,6 +5,8 @@ import { MeeplePointModel } from '../../models/MeeplePointModel';
 import { NgForm } from '@angular/forms';
 import { UserService } from '../../services/UserService';
 import { UserModel } from 'src/app/models/UserModel';
+import { SimpleOAuth } from '../../services/SimpleOAuth';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-manage-points',
   templateUrl: './manage-points.component.html',
@@ -26,12 +28,15 @@ export class ManagePointsComponent implements OnInit {
   modalDetails: MeeplePointModel = new MeeplePointModel();
 
   private readonly notifier: NotifierService;
-  constructor(private meeplePointService: MeeplePointService, notifierService: NotifierService,  private userService: UserService) {
+  constructor(private meeplePointService: MeeplePointService, notifierService: NotifierService,  private userService: UserService, private oAuth:SimpleOAuth, private router: Router) {
     this.notifier = notifierService;
 
   }
 
   ngOnInit(): void {
+
+    if (this.oAuth.isUser() == false) this.router.navigate(['/']);
+
     this.loadPoints();
     this.loadUsers();
   }

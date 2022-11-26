@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MeeplePointModel } from '../../models/MeeplePointModel';
 import { NotifierService } from 'angular-notifier';
 import { MeeplePointService } from '../../services/MeeplePointService';
+import { SimpleOAuth } from '../../services/SimpleOAuth';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-career-board',
@@ -19,12 +21,14 @@ export class CareerBoardComponent implements OnInit {
   point: MeeplePointModel = new MeeplePointModel();
 
   private readonly notifier: NotifierService;
-  constructor(private meeplePointService: MeeplePointService, notifierService: NotifierService) {
+  constructor(private meeplePointService: MeeplePointService, notifierService: NotifierService, private oAuth:SimpleOAuth, private router: Router) {
     this.notifier = notifierService;
 
   }
 
   ngOnInit(): void {
+    if (this.oAuth.isUser() == false) this.router.navigate(['/']);
+    
     this.loadPoints();
   }
 

@@ -3,6 +3,8 @@ import { CardModel } from 'src/app/models/CardModel';
 import { MeepleRankModel } from '../../models/MeepleRankModel';
 import { NotifierService } from 'angular-notifier';
 import { MeeplePointService } from '../../services/MeeplePointService';
+import { SimpleOAuth } from '../../services/SimpleOAuth';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -20,12 +22,15 @@ export class HomeComponent implements OnInit {
   point: MeepleRankModel = new MeepleRankModel();
 
   private readonly notifier: NotifierService;
-  constructor(private meeplePointService: MeeplePointService, notifierService: NotifierService) {
+  constructor(private meeplePointService: MeeplePointService, notifierService: NotifierService, private oAuth:SimpleOAuth, private router: Router) {
     this.notifier = notifierService;
 
   }
 
   ngOnInit(): void {
+
+    if (this.oAuth.isUser() == false) this.router.navigate(['/']);
+
     this.loadPoints();
   }
 
@@ -34,7 +39,6 @@ export class HomeComponent implements OnInit {
     this.meeplePointService.getMeepleRank().subscribe((data) => {
 
       data.forEach(element => {
-        console.log(element.point);
         this.pointList.push(element);
       });
 

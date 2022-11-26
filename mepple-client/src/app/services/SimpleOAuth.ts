@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class SimpleOAuth {
 
     isUser() {
-        if (localStorage.getItem('email') != null && localStorage.getItem('email') != '' ) return false;
+        if (localStorage.getItem('email') == null || localStorage.getItem('email') == '' ) return false;
 
         return true;
     }

@@ -8,7 +8,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { SignInComponent } from './pages/sign-in/sign-in.component';
-import { MatchPointComponent } from './pages/match-point/match-point.component';
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CareerBoardComponent } from './pages/career-board/career-board.component';
@@ -20,7 +19,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppComponent,
     HomeComponent,
     SignInComponent,
-    MatchPointComponent,
     SignUpComponent,
     CareerBoardComponent,
     ManagePointsComponent
