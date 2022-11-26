@@ -40,7 +40,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public UserModel findByEmailAndPassword(String email, String password) {
+	public Optional<UserModel> findByEmailAndPassword(String email, String password) {
 		return userRepository.findByEmailAndPassword(email, password);
 	}
 

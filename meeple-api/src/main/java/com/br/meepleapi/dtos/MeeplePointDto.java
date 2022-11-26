@@ -7,7 +7,7 @@ import lombok.Data;
 
 @Data
 public class MeeplePointDto {
-
+	
 	@NotNull
 	private float point;
 	@NotBlank

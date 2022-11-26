@@ -13,6 +13,8 @@ import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CareerBoardComponent } from './pages/career-board/career-board.component';
 import { ManagePointsComponent } from './pages/manage-points/manage-points.component';
+import { NgxSpinnerModule } from "ngx-spinner";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +32,9 @@ import { ManagePointsComponent } from './pages/manage-points/manage-points.compo
     Ng2SearchPipeModule,
     FormsModule,
     HttpClientModule,
-    NotifierModule
+    NotifierModule,
+    NgxSpinnerModule,
+    BrowserAnimationsModule
   ],
   providers: [
   ],
@@ -39,3 +43,4 @@ import { ManagePointsComponent } from './pages/manage-points/manage-points.compo
 export class AppModule {
 
 }
+

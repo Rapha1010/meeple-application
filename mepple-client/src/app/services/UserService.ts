@@ -12,12 +12,15 @@ export class UserService {
         private httpClient: HttpClient) { }
 
     postSignUp = (userModel: UserModel) => {
-        console.log(userModel);
         return this.httpClient.post(environment.apiUrl + "/users/signup", userModel);
     }
 
     getSignIn = (email:string, password:string) => {
-		return this.httpClient.get<UserModel>(environment.apiUrl + "/users/auth/"+email+"/"+password);
+		return this.httpClient.get<UserModel>(environment.apiUrl + "/users/signin/"+email+"/"+password);
+	}
+
+    getAllUsers = () => {
+		return this.httpClient.get<UserModel[]>(environment.apiUrl + "/users");
 	}
 
 }

@@ -9,23 +9,15 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th>id</th>
-                        <th>name</th>
-                        <th>color</th>
-                        <th>type</th>
-                        <th>action</th>
+                        <th>Nome</th>
+                        <th>Pontuação</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr
-                        *ngFor="let card of cardList | paginate: { itemsPerPage: pageSize, currentPage: page } | filter:filterTerm ">
-                        <td>{{card.id}}</td>
-                        <td>{{card.name}}</td>
-                        <td>{{card.color}}</td>
-                        <td>{{card.type}}</td>
-                        <td>
-                            <button class="btn btn-primary" (click)="addCard(card.id)"> + </button>
-                        </td>
+                        *ngFor="let p of pointList | paginate: { itemsPerPage: pageSize, currentPage: page } | filter:filterTerm ">
+                        <td>{{p.name}}</td>
+                        <td>{{p.points}}</td>
                     </tr>
                 </tbody>
             </table>

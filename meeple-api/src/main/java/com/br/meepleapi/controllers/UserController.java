@@ -3,6 +3,7 @@ package com.br.meepleapi.controllers;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 import javax.validation.Valid;
@@ -43,9 +44,15 @@ public class UserController {
 		return ResponseEntity.ok().body(userService.findById(id).get());
 	}
 	
-	@GetMapping("/auth/{email}/{password}")
-	public ResponseEntity<UserModel> authUser(@PathVariable String email, @PathVariable String password) {
-		return ResponseEntity.ok().body(userService.findByEmailAndPassword(email, password));
+	@GetMapping("/signin/{email}/{password}")
+	public ResponseEntity<Object> signinUser(@PathVariable String email, @PathVariable String password) {
+		
+		Optional<UserModel> userOptional = userService.findByEmailAndPassword(email, password);
+		if (!userOptional.isPresent()) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("user is not correct");
+		}
+		
+		return ResponseEntity.status(HttpStatus.OK).body(userService.findByEmailAndPassword(email, password).get());
 	}
 	
 	@PostMapping("/signup")

@@ -30,7 +30,7 @@ export class CareerBoardComponent implements OnInit {
 
   loadPoints(): void {
 
-    this.meeplePointService.getMeeplePoint().subscribe((data) => {
+    this.meeplePointService.getMeeplePointByUserId().subscribe((data) => {
       data.forEach(element => {
         this.pointList.push(element);
       });
