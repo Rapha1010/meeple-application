@@ -1,33 +1,36 @@
 <div class="container">
+    <h1 class="display-5" style="margin:10px;">Carreira</h1>
     <div class="row">
-        <div class="col-sm-9 col-md-7 col-lg-12 mx-auto">
+        <div class="col-sm-12 col-md-12 col-lg-12 mx-auto">
             <div class="form-group">
-                <div class="search-hero text-right" style="margin:10px;">
+                <div class="search-hero text-right" style="margin:0px;">
                     <input type="text" class="form-control" [(ngModel)]="filterTerm" placeholder="Search">
                 </div>
             </div>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Pontuacao</th>
-                        <th>Observacao</th>
-                        <th>Data</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr
-                        *ngFor="let p of pointList | paginate: { itemsPerPage: pageSize, currentPage: page } | filter:filterTerm ">
-                        <td>{{p.point}}</td>
-                        <td>{{p.obs}}</td>
-                        <td>{{p.creationDate}}</td>
-                        <td>
-                            <button class="btn btn-primary" (click)="addCard(p.id)"> + </button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <pagination-controls (pageChange)="page = $event"></pagination-controls>
+            <div class="card shadow">
+                <table class="table align-items-center table-flush">
+                    <thead class="thead-light">
+                        <tr>
+                            <th style="text-align:right;">Pontuação</th>
+                            <th style="text-align:center;">Observação</th>
+                            <th style="text-align:center;">Data</th>
+                            <th>View</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr
+                            *ngFor="let p of pointList | paginate: { itemsPerPage: pageSize, currentPage: page } | filter:filterTerm ">
+                            <td style="text-align:right;">{{p.point}}</td>
+                            <td style="text-align:center;">{{p.obs}}</td>
+                            <td style="text-align:center;">{{p.creationDate}}</td>
+                            <td>
+                                <button class="btn btn-primary" (click)="addCard(p.id)" disabled> + </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <pagination-controls (pageChange)="page = $event"></pagination-controls>
+            </div>
         </div>
     </div>
 </div>

@@ -1,23 +1,30 @@
+
 <div class="container">
+    <h1 class="display-5" style="margin:10px;">Rank</h1>
     <div class="row">
-        <div class="col-sm-9 col-md-7 col-lg-12 mx-auto">
+        <div class="col-sm-12 col-md-12 col-lg-12 mx-auto">
             <div class="form-group">
-                <div class="search-hero text-right" style="margin:10px;">
+                <div class="search-hero text-right" style="margin:0px;">
                     <input type="text" class="form-control" [(ngModel)]="filterTerm" placeholder="Search">
                 </div>
             </div>
-            <table class="table">
-                <thead>
+            <div class="card shadow">
+                <table class="table align-items-center table-flush">
+                    <thead class="thead-light">
                     <tr>
-                        <th>Nome</th>
-                        <th>Pontuação</th>
+                        <th style="text-align:center;">
+                            
+                            Usuário Meeple</th>
+                        <th style="text-align:right;" >Pontuação</th>
+                        <th style="text-align:right;">Variação</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr
                         *ngFor="let p of pointList | paginate: { itemsPerPage: pageSize, currentPage: page } | filter:filterTerm ">
-                        <td>{{p.name}}</td>
-                        <td>{{p.points}}</td>
+                        <td  style="text-align:center;">{{p.name}}</td>
+                        <td style="text-align:right;">{{p.points}}</td>
+                        <td style="text-align:right;">-1</td>
                     </tr>
                 </tbody>
             </table>
@@ -25,3 +32,5 @@
         </div>
     </div>
 </div>
+</div>
+
