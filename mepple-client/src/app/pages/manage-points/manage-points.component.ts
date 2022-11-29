@@ -5,7 +5,7 @@ import { MeeplePointModel } from '../../models/MeeplePointModel';
 import { NgForm } from '@angular/forms';
 import { UserService } from '../../services/UserService';
 import { UserModel } from 'src/app/models/UserModel';
-import { SimpleOAuth } from '../../services/SimpleOAuth';
+import { SimpleOAuth } from '../../shared/SimpleOAuth';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-manage-points',
@@ -75,7 +75,7 @@ export class ManagePointsComponent implements OnInit {
     this.meeplePointModel.obs = data.value.obs;
     this.meeplePointService.postMeeplePoint(this.meeplePointModel, this.selectedOption).subscribe(
       {
-        next: (data) => { this.notifier.notify('success', 'Pontuação adicionada') },
+        next: (data) => { this.notifier.notify('success', 'Pontuação adicionada'), location.reload() },
         error: (err) => { this.notifier.notify('error', err.error.error); }
       }
     );
@@ -89,7 +89,7 @@ export class ManagePointsComponent implements OnInit {
 
     this.meeplePointService.putMeeplePointByPointId(this.meeplePointModel, this.modalDetails.pointId).subscribe(
       {
-        next: (data) => { this.notifier.notify('success', 'Pontuação alterada') },
+        next: (data) => { this.notifier.notify('success', 'Pontuação alterada'), location.reload() },
         error: (err) => { this.notifier.notify('error', err.error.error); }
       }
     );
@@ -99,7 +99,7 @@ export class ManagePointsComponent implements OnInit {
 
     this.meeplePointService.getDeleteMeeplePoint(this.modalDetails.pointId).subscribe(
       {
-        next: (data) => { this.notifier.notify('success', 'Pontuação removida') },
+        next: (data) => { this.notifier.notify('success', 'Pontuação removida'), location.reload() },
         error: (err) => { this.notifier.notify('error', err.error.error); }
       }
     );

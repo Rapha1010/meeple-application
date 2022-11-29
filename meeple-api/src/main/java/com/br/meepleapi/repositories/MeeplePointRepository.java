@@ -18,5 +18,7 @@ public interface MeeplePointRepository extends JpaRepository<MeeplePointModel, U
 			+ "	group by user_model.name order by points desc", nativeQuery=true)
 	List<RankInterface> getMeepleRank();
 
+	void deleteByUser(UserModel user);
+
 
 }

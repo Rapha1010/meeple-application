@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MeeplePointModel } from '../../models/MeeplePointModel';
 import { NotifierService } from 'angular-notifier';
 import { MeeplePointService } from '../../services/MeeplePointService';
-import { SimpleOAuth } from '../../services/SimpleOAuth';
+import { SimpleOAuth } from '../../shared/SimpleOAuth';
 import { Router } from '@angular/router';
 
 @Component({
@@ -33,8 +33,9 @@ export class CareerBoardComponent implements OnInit {
   }
 
   loadPoints(): void {
+    const userId = (localStorage.getItem('user_id') == null ? '' : localStorage.getItem('user_id'));
 
-    this.meeplePointService.getMeeplePointByUserId().subscribe((data) => {
+    this.meeplePointService.getMeeplePointByUserId(userId || '').subscribe((data) => {
       data.forEach(element => {
         this.pointList.push(element);
       });

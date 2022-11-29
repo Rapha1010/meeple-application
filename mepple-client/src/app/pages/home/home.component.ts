@@ -3,7 +3,7 @@ import { CardModel } from 'src/app/models/CardModel';
 import { MeepleRankModel } from '../../models/MeepleRankModel';
 import { NotifierService } from 'angular-notifier';
 import { MeeplePointService } from '../../services/MeeplePointService';
-import { SimpleOAuth } from '../../services/SimpleOAuth';
+import { SimpleOAuth } from '../../shared/SimpleOAuth';
 import { Router } from '@angular/router';
 
 @Component({

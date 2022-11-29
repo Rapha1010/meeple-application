@@ -4,9 +4,12 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+import javax.transaction.Transactional;
+
 import org.springframework.stereotype.Service;
 
 import com.br.meepleapi.models.UserModel;
+import com.br.meepleapi.repositories.MeeplePointRepository;
 import com.br.meepleapi.repositories.UserRepository;
 import com.br.meepleapi.services.UserService;
 
@@ -15,8 +18,11 @@ public class UserServiceImpl implements UserService {
 	
 	private UserRepository userRepository;
 	
-	UserServiceImpl(UserRepository userRepository) {
+	private MeeplePointRepository meeplePointRepository;
+	
+	UserServiceImpl(UserRepository userRepository, MeeplePointRepository meeplePointRepository) {
 		this.userRepository = userRepository;
+		this.meeplePointRepository = meeplePointRepository;
 	}
 	
 	@Override
@@ -30,7 +36,9 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
+	@Transactional
 	public void delete(UUID id) {
+		meeplePointRepository.deleteByUser(this.findById(id).get());
 		userRepository.deleteById(id);
 	}
 

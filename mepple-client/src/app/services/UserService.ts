@@ -23,4 +23,12 @@ export class UserService {
 		return this.httpClient.get<UserModel[]>(environment.apiUrl + "/users");
 	}
 
+    getDeleteUser = (userId:string) => {
+        return this.httpClient.delete<UserModel>(environment.apiUrl + `/users/${userId}`);
+    }
+
+    putUserById = (userModel: UserModel, userId: string) => {
+        return this.httpClient.put<UserModel>(environment.apiUrl + `/users/${userId}`, userModel);
+    }
+
 }

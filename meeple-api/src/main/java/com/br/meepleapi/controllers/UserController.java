@@ -16,11 +16,14 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.br.meepleapi.dtos.MeeplePointDto;
 import com.br.meepleapi.dtos.UserDto;
+import com.br.meepleapi.models.MeeplePointModel;
 import com.br.meepleapi.models.UserModel;
 import com.br.meepleapi.services.UserService;
 
@@ -71,6 +74,24 @@ public class UserController {
 	public ResponseEntity<Object> deleteUser(@PathVariable UUID id) {
 		userService.delete(id);
 		return  ResponseEntity.status(HttpStatus.OK).build();
+	}
+	
+	@PutMapping("/{userId}")
+	public ResponseEntity<Object> putPointByPointId(@PathVariable UUID userId, @RequestBody UserDto obj) {
+		
+		Optional<UserModel> userOptional = userService.findById(userId);
+		if (!userOptional.isPresent()) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User Not Found");
+		}
+		
+		UserModel userModel =  userOptional.get();
+		
+		BeanUtils.copyProperties(obj, userModel);
+		userModel.setLastUpdateDate(LocalDateTime.now(ZoneId.of("UTC")));
+		
+		userService.save(userModel);
+		
+		return ResponseEntity.status(HttpStatus.OK).build();
 	}
 	
 }

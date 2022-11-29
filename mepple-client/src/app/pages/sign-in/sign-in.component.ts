@@ -4,7 +4,7 @@ import { UserService } from '../../services/UserService';
 import { NotifierService } from 'angular-notifier';
 import { NgxSpinnerService } from "ngx-spinner";
 import { Router, RouterModule, Routes } from '@angular/router';
-import { SimpleOAuth } from '../../services/SimpleOAuth';
+import { SimpleOAuth } from '../../shared/SimpleOAuth';
 @Component({
   selector: 'app-sign-in',
   templateUrl: './sign-in.component.html',
@@ -15,7 +15,7 @@ export class SignInComponent implements OnInit {
   userModel: UserModel = new UserModel();
 
   private readonly notifier: NotifierService;
-  constructor(private userService: UserService, notifierService: NotifierService, private spinner: NgxSpinnerService, private router: Router) {
+  constructor(private userService: UserService, notifierService: NotifierService, private spinner: NgxSpinnerService, private router: Router, private oAuth:SimpleOAuth) {
     this.notifier = notifierService;
   }
 
@@ -38,11 +38,10 @@ export class SignInComponent implements OnInit {
   }
 
   setLocalStorage(data:UserModel) {
-    localStorage.setItem('email', data.email);
-    localStorage.setItem('user_id', data.userId);
+    this.oAuth.setLocalStorage(data);
     setTimeout(() => {
       this.spinner.hide();
-      this.router.navigate(['/home']);
+      this.router.navigate(['/home']).then(() => {location.reload()});
     }, 1500);
   }
 

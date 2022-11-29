@@ -6,6 +6,8 @@ export class UserModel implements Deserializable {
   name:string = '';
   email:string = '';
   password:string = '';
+  lastUpdateDate:string = '';
+  creationDate:string = '';
 
   deserialize(input: UserModel) {
     Object.assign(this, input);

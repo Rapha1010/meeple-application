@@ -14,6 +14,7 @@ import { CareerBoardComponent } from './pages/career-board/career-board.componen
 import { ManagePointsComponent } from './pages/manage-points/manage-points.component';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ManageUsersComponent } from './pages/manage-users/manage-users.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +22,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SignInComponent,
     SignUpComponent,
     CareerBoardComponent,
-    ManagePointsComponent
+    ManagePointsComponent,
+    ManageUsersComponent
   ],
   imports: [
     BrowserModule,

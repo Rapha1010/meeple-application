@@ -21,8 +21,8 @@ export class MeeplePointService {
         return this.httpClient.delete<MeeplePointModel>(environment.apiUrl + `/point/${pointId}`);
     }
 
-    getMeeplePointByUserId = () => {
-        return this.httpClient.get<MeeplePointModel[]>(environment.apiUrl + "/point/user/60700a77-74fb-4feb-afdb-a7eddce4dd3f");
+    getMeeplePointByUserId = (userId:string) => {
+        return this.httpClient.get<MeeplePointModel[]>(environment.apiUrl + `/point/user/${userId}`);
     }
 
     postMeeplePoint = (meeplePointModel: MeeplePointModel, userId: string) => {

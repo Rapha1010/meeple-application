@@ -2,6 +2,7 @@ package com.br.meepleapi.models;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.Objects;
 import java.util.UUID;
 
 import javax.persistence.Column;
@@ -13,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -43,5 +45,21 @@ public class MeeplePointModel implements Serializable {
 	
 	@ManyToOne(optional = false)
 	private UserModel user;
-	
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		MeeplePointModel other = (MeeplePointModel) obj;
+		return Objects.equals(user, other.user);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(user);
+	}
 }

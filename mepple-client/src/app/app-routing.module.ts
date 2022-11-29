@@ -6,6 +6,7 @@ import { SignInComponent } from './pages/sign-in/sign-in.component';
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { CareerBoardComponent } from './pages/career-board/career-board.component';
 import { ManagePointsComponent } from './pages/manage-points/manage-points.component';
+import { ManageUsersComponent } from './pages/manage-users/manage-users.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'sign-in', component: SignInComponent },
   { path: 'sign-up', component: SignUpComponent },
   { path: 'manage-points', component: ManagePointsComponent },
+  { path: 'manage-users', component: ManageUsersComponent },
 ];
 
 @NgModule({
