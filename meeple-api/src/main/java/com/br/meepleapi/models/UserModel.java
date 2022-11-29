@@ -42,6 +42,9 @@ public class UserModel implements Serializable {
 	@Column(name = "email", unique=true)
 	private String email;
 	
+	@Column(name = "is_admin", unique=false)
+	private boolean isAdmin;
+	
 	@Column(nullable = false)
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss")
 	private LocalDateTime creationDate;

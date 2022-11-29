@@ -12,5 +12,7 @@ public class UserDto {
 	private String password;
 	@NotBlank
 	private String email;
+	
+	private boolean isAdmin;
 
 }

@@ -23,7 +23,7 @@
                     <tr
                         *ngFor="let p of pointList | paginate: { itemsPerPage: pageSize, currentPage: page } | filter:filterTerm ">
                         <td  style="text-align:center;">{{p.name}}</td>
-                        <td style="text-align:right;">{{p.points}}</td>
+                        <td style="text-align:right;">{{p.points.toFixed(2)}}</td>
                         <td style="text-align:right;">-1</td>
                     </tr>
                 </tbody>
