@@ -35,7 +35,7 @@ export class ManagePointsComponent implements OnInit {
 
   ngOnInit(): void {
 
-    if (this.oAuth.isUser() == false) this.router.navigate(['/']);
+    if (this.oAuth.isAdmin() == false) this.router.navigate(['/']);
 
     this.loadPoints();
     this.loadUsers();

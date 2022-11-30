@@ -8,7 +8,7 @@ export class UserModel implements Deserializable {
   password:string = '';
   lastUpdateDate:string = '';
   creationDate:string = '';
-  isAdmin: boolean = false;
+  admin: boolean = false;
 
   deserialize(input: UserModel) {
     Object.assign(this, input);

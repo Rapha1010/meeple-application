@@ -32,7 +32,7 @@ export class ManageUsersComponent implements OnInit {
 
   ngOnInit(): void {
 
-    if (this.oAuth.isUser() == false) this.router.navigate(['/']);
+    if (this.oAuth.isAdmin() == false) this.router.navigate(['/']);
 
     this.loadUsers();
   }
@@ -71,10 +71,13 @@ export class ManageUsersComponent implements OnInit {
     this.modalDetails.name = data.value.name;
     this.modalDetails.email = data.value.email;
     this.modalDetails.password = data.value.password;
+    this.modalDetails.admin = data.value.admin;
+
+    console.log(data.value);
 
     this.userService.putUserById(this.modalDetails, this.modalDetails.userId).subscribe(
       {
-        next: (data) => { this.notifier.notify('success', 'Usuário alterado'), location.reload() },
+        next: (data) => { this.notifier.notify('success', 'Usuário alterado')},
         error: (err) => { this.notifier.notify('error', err.error.error); }
       }
     );

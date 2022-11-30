@@ -13,6 +13,6 @@ public class UserDto {
 	@NotBlank
 	private String email;
 	
-	private boolean isAdmin;
+	private boolean admin;
 
 }

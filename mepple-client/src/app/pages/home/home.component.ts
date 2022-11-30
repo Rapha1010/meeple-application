@@ -14,7 +14,7 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
 
   page = 1;
-  pageSize = 4;
+  pageSize = 7;
 
   filterTerm!: string;
 

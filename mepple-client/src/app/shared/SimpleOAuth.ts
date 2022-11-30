@@ -13,6 +13,13 @@ export class SimpleOAuth {
         return true;
     }
 
+    isAdmin() {
+        if (localStorage.getItem('admin') != 'true') return false;
+
+        return true;
+    }
+
+
     isTheCurrentUser(userId:string) {
 
         if (localStorage.getItem('user_id') == userId) return true;
@@ -24,6 +31,7 @@ export class SimpleOAuth {
         localStorage.setItem('email', data.email);
         localStorage.setItem('user_id', data.userId);
         localStorage.setItem('user', data.name);
+        localStorage.setItem('admin', data.admin ? 'true': 'false');
     }
 
     getLocalStorageUser() {

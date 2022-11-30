@@ -76,7 +76,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="editModalLabel">Editar Meeple Points</h5>
+                <h5 class="modal-title" id="editModalLabel">Editar Meeple User</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -88,15 +88,21 @@
                         <div class="form-row">
                             <div class="col-md-6 mb-1">
                                 <label for="inputCity"><b>Meeple User </b> </label> <br />
-                                <input type="text" class="form-control" id="name" name="name"
+                                <input type="text" class="form-control" id="name_edit" name="name"
                                     value={{modalDetails.name}} placeholder="ex:10" [(ngModel)]="modalDetails.name">
 
                                 <label for="inputCity"><b>Meeple email </b> </label> <br />
-                                <input class="form-control" id="email" name="email" value={{modalDetails.email}}
+                                <input class="form-control" id="email_edit" name="email" value={{modalDetails.email}}
                                     [(ngModel)]="modalDetails.email">
 
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox"  id="admin_edit" name="admin"
+                                        [checked]="modalDetails.admin" [(ngModel)]="modalDetails.admin">
+                                    <label for="inputCity">É administrador </label> <br />
+                                </div>
+
                                 <label for="inputCity"><b>Meeple senha </b> </label> <br />
-                                <input class="form-control" type= "password" id="password" name="password" value=""
+                                <input class="form-control" type="password" id="password_edit" name="password" value=""
                                     [(ngModel)]="modalDetails.password">
                             </div>
                         </div>
@@ -125,19 +131,25 @@
             </div>
             <div class="modal-body">
                 <div class="container">
-                    <form #userForm="ngForm" (ngSubmit)="onClickAdd()"
-                        style="margin-top: 15px; margin-left: 20px;" >
+                    <form #userForm="ngForm" (ngSubmit)="onClickAdd()" style="margin-top: 15px; margin-left: 20px;">
                         <div class="form-row">
                             <div class="col-md-6 mb-1">
                                 <label for="inputCity"><b>Meeple User </b> </label> <br />
-                                <input type="text" class="form-control" id="name" name="name"
-                                    value="" placeholder="Uhtred, Odin, Arya, Xedux, Arabela " [(ngModel)]="user.name">
+                                <input type="text" class="form-control" id="name" name="name" value=""
+                                    placeholder="Uhtred, Odin, Arya, Xedux, Arabela " [(ngModel)]="user.name">
 
                                 <label for="inputCity"><b>Meeple email </b> </label> <br />
                                 <input class="form-control" id="email" name="email" value="" [(ngModel)]="user.email">
 
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox"  id="admin" name="admin"
+                                        [(ngModel)]="user.admin">
+                                    <label for="inputCity">É administrador </label> <br />
+                                </div>
+
                                 <label for="inputCity"><b>Meeple senha </b> </label> <br />
-                                <input class="form-control" type= "password" id="password" name="password" value="" [(ngModel)]="user.password">
+                                <input class="form-control" type="password" id="password" name="password" value=""
+                                    [(ngModel)]="user.password">
                             </div>
                         </div>
                         <div class="form-row">

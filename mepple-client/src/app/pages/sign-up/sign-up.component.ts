@@ -12,6 +12,8 @@ import { Router } from '@angular/router';
 export class SignUpComponent implements OnInit {
 
   userModel: UserModel = new UserModel();
+  
+
   private readonly notifier: NotifierService;
   constructor(private userService: UserService, notifierService: NotifierService, private router: Router) {
     this.notifier = notifierService;

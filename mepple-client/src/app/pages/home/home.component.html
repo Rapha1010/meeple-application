@@ -12,19 +12,23 @@
                 <table class="table align-items-center table-flush">
                     <thead class="thead-light">
                     <tr>
-                        <th style="text-align:center;">
-                            
-                            Usuário Meeple</th>
+                        <th style="text-align:center;">Troféu</th>
+                        <th style="text-align:center;">Usuário Meeple</th>
                         <th style="text-align:right;" >Pontuação</th>
-                        <th style="text-align:right;">Variação</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr
-                        *ngFor="let p of pointList | paginate: { itemsPerPage: pageSize, currentPage: page } | filter:filterTerm ">
+                        *ngFor="let p of pointList | paginate: { itemsPerPage: pageSize, currentPage: page } | filter:filterTerm  index as i">
+                        <td  style="text-align:center;">
+                                <img src="../../../assets/img/trofeu_ouro_200x200.png" style="width: 30px;" *ngIf = "(i==0)">
+                                <img src="../../../assets/img/trofeu_prata_200x200.png" style="width: 30px;" *ngIf = "(i==1)">
+                                <img src="../../../assets/img/trofeu_bronze_200x200.png" style="width: 30px;" *ngIf = "(i==2)">
+                                <img src="../../../assets/img/medalha_esforco.jpg" style="width: 50px;" *ngIf = "(i > 2)">
+                        </td>
                         <td  style="text-align:center;">{{p.name}}</td>
+                        
                         <td style="text-align:right;">{{p.points.toFixed(2)}}</td>
-                        <td style="text-align:right;">-1</td>
                     </tr>
                 </tbody>
             </table>
