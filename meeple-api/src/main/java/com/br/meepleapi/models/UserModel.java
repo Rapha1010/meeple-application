@@ -39,20 +39,20 @@ public class UserModel implements Serializable {
 	private String name;
 	@Column(name = "password")
 	private String password;
-	@Column(name = "email", unique=true)
+	@Column(name = "email", unique = true)
 	private String email;
-	
-	@Column(name = "is_admin", unique=false)
+
+	@Column(name = "is_admin", unique = false)
 	private boolean isAdmin;
-	
+
 	@Column(nullable = false)
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss")
 	private LocalDateTime creationDate;
-	
+
 	@Column(nullable = false)
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss")
 	private LocalDateTime lastUpdateDate;
-	
+
 	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
 	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
 	@Fetch(FetchMode.SUBSELECT)
@@ -74,7 +74,19 @@ public class UserModel implements Serializable {
 	public int hashCode() {
 		return Objects.hash(userId);
 	}
-	
-	
+
+	public UserModel(String name, String password, String email, boolean isAdmin, LocalDateTime creationDate,
+			LocalDateTime lastUpdateDate) {
+		this.name = name;
+		this.password = password;
+		this.email = email;
+		this.isAdmin = isAdmin;
+		this.creationDate = creationDate;
+		this.lastUpdateDate = lastUpdateDate;
+	}
+
+	public UserModel() {
+		// TODO Auto-generated constructor stub
+	}
 
 }

@@ -6,7 +6,8 @@ export const environment = {
 	production: false,
 	oidcUrl: '',
 	oidcClientId: '',
-	apiUrl: 'http://localhost:8082/meeple-api'
+	// apiUrl: 'http://localhost:8082/meeple-api'
+	apiUrl:'http://ec2-3-83-184-63.compute-1.amazonaws.com:8082/meeple-api'
 };
 /*
  * For easier debugging in development mode, you can import the following file
